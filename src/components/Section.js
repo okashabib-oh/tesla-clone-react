@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section({ title, description, backgroundImage, leftBtnText, rightBtnText }) {
     return (
-        <Wrap>
+        <Wrap bgImage={backgroundImage}>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchless Delivery</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        Custom Order
+                        {leftBtnText}
                     </LeftButton>
 
                     <RightButton>
-                        Existing Inventory
+                        {rightBtnText}
                     </RightButton>
                 </ButtonGroup>
 
@@ -38,6 +38,7 @@ const Wrap = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    background-image: ${props => `url("/images/${props.bgImage}")`}
 `
 
 const ItemText = styled.div`
